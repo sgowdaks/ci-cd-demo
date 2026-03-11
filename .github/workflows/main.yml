@@ -1,0 +1,14 @@
+name: Run Tests
+on: [push] # Trigger on every push
+
+jobs:
+  test-logic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Run the test function
+        run: python -c "from app import test_add; test_add()"
